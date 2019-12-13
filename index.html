@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <title>SetYourGoals</title>
+        <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<!--
+    Riikka Niemi
+    Student number 1751510
+    Description: Learning jQuery
+    -->
+
+  <style>
+#keski, #ylin{
+  background-color : gray;
+}
+#keski{
+  padding: 5px;
+  display: none;
+}
+#alin{
+  padding: 5px;
+  background-color: yellow;
+}
+  </style>
+    </head>
+
+    <body>
+      <script>
+/*
+Muistiinpanoja:
+$(document).ready(function(){
+  $("#flip").click(function(){
+    $("#panel").slideDown("slow");
+  });
+});
+.slideUp()
+.slideToggle()ylös ja alas
+JQuery viittaukset elementteihin:
+$("p")valitsee <p> /document.getElementsByTagName
+$("#idElement")   /document.getElementById
+$(".class")       /document.getElementsByClassName
+*/
+$(document).ready(function(){
+  $("#ylin").click(function(){
+    $("#keski").slideToggle("slow");
+  });
+});
+//style ja JQuery yhteistyössä display none, slide down/ up
+$(document).ready(function($) {
+  //funktio toimii kun sivu "ladattu"
+    $('form').submit(function() {
+        if ($('.input').val() !== '') {
+            var newGoal = $('.input').val();
+          var newLi=  $('#Goal5').append('<li>' + newGoal + '</li>');
+            newLi.on('click', function() {
+                $(this).remove(); // $(this).hide(); piilottaisi tuplaklikkaus dbclick(function()){....}
+            });
+            $('ul').prepend(newLi); // uusin task listan alkuun
+            $('.input').val('');
+            return false;
+        }
+    });
+});
+$(document).ready(function($) {
+    $('form').submit(function() {
+        if ($('.input2').val() !== '') {
+            var newGoal2 = $('.input2').val();
+          var newLi2=  $('#Goal1').append('<li>' + newGoal2 + '</li>');
+            newLi2.on('click', function() {
+                $(this).remove();
+            });
+            $('ul').prepend(newLi2);
+            $('.input').val('');
+            return false;
+        }
+    });
+});
+$(document).ready(function($) {
+    $('form').submit(function() {
+        if ($('.input3').val() !== '') {
+            var newGoal3 = $('.input3').val();
+          var newLi3=  $('#Goal2').append('<li>' + newGoal3 + '</li>');
+            newLi3.on('click', function() {
+                $(this).remove();
+            });
+            $('ul').prepend(newLi3);
+            $('.input').val('');
+            return false;
+        }
+    });
+});
+      </script>
+<form>
+      <div class="jumbotron text-center" id ="ylin">
+          <h1 id="Tavoitteet">Set Your Goals:</h1>
+          <h3>click here to see or hide your goal setting form</h3>
+      </div>
+            <div class="goal text-center" id="keski">
+
+            <textarea type="text"class="input" rows="4" cols="50" id="NewGoal" placeholder="Write your final goal down..."></textarea><br>
+              <textarea type="text"class="input2" rows="4" cols="50" id="NewGoal2" placeholder="Write your one year goals down..."></textarea><br>
+                <textarea type="text"class="input3" rows="4" cols="50" id="NewGoal3" placeholder="Write your next week / month goals down..."></textarea><br>
+
+                    <button>My Goals for the future</button>
+        </div>
+    <div id = "alin">
+      <div class= "list5 text-center">
+        <h3>This is my final Goal:</h3>
+        <ul id ="Goal5" >
+        </ul>
+      </div>
+
+      <div class= "list1 text-center">
+          <h3>After One year I'll be here:</h3>
+        <ul id="Goal1">
+        </ul>
+      </div>
+
+      <div class= "listNow text-center">
+          <h3>My next tasks are:</h3>
+        <ul id="Goal2">
+        </ul>
+      </div>
+    </div>
+</form>
+
+        <script>src="http://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"></script>
+
+
+    </body>
+</html>
